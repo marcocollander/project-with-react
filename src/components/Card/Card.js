@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class Card extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string,
   }
 
   render(){

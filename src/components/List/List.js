@@ -10,14 +10,14 @@ import Creator from '../Creator/Creator';
 
 class List extends React.Component {
   state = {
-    columns: this.props.columns || []
+    columns: this.props.columns || [],
   }
 
   static propTypes = {
     title: PropTypes.node.isRequired,
     image: PropTypes.node,
     description: PropTypes.node,
-    columns: PropTypes.array
+    columns: PropTypes.array,
   }
 
   static defaultProps = {
@@ -31,9 +31,9 @@ class List extends React.Component {
           key: state.columns.length ? state.columns[state.columns.length - 1].key + 1 : 0,
           title,
           icon: 'list-alt',
-          cards: []
-        }
-      ]
+          cards: [],
+        },
+      ],
     }));
   }
 
@@ -47,14 +47,14 @@ class List extends React.Component {
           {ReactHtmlParser(this.props.description)}
         </div>
         <div className={styles.columns}>
-         {this.state.columns.map(({key, ...columnProps}) =>(
+          {this.state.columns.map(({key, ...columnProps}) =>(
             <Column key={key} {...columnProps}/>))}
         </div>
         <div className={styles.creator}>
           <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)} />
         </div>
       </section>
-    )
+    );
   }
 }
 
